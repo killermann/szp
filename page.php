@@ -1,76 +1,74 @@
 <?php get_header(); ?>
 
 			<div id="content">
-
 				<div id="inner-content" class="wrap clearfix">
+					<div id="pre-content">
+						<nav id="breadcrumbs-container" class="cellHide" aria-label="breadcrumb">
+							<?php if ( function_exists('yoast_breadcrumb') ) {yoast_breadcrumb('<p id="breadcrumbs">','</p>');}?>
+						</nav>
+					</div>
+					<div id="main" class="eightcol first clearfix" role="main">
+						<div class="featuredImage"><?php the_post_thumbnail('full') ?></div>
 
-						<div id="main" class="eightcol first clearfix" role="main">
+						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="https://schema.org/BlogPosting">
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+							<header class="page-header">
+								<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
+							</header> <!-- end article header -->
 
-								<header class="article-header">
+							<section class="entry-content clearfix" itemprop="articleBody">
+								<?php edit_post_link(); ?>
+								<?php the_content(); ?>
+							</section> <!-- end article section -->
 
-									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
-									
-								</header> <!-- end article header -->
+						</article> <!-- end article -->
 
-								<section class="entry-content clearfix" itemprop="articleBody">
-									<div id="childPageContainer" class="twelvecol first clearfix">
-										<?php $args = array(
-								                'post_parent' => $post->ID,
-								                'post_type' => 'page',
-								                'orderby' => 'menu_order'
-								            );
+						<?php endwhile; else : ?>
 
-								            $child_query = new WP_Query( $args );
+								<article id="post-not-found" class="hentry clearfix">
+									<header class="article-header">
+										<h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
+									</header>
+									<section class="entry-content">
+										<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
+									</section>
+									<footer class="article-footer">
+											<p><?php _e("This is the error message in the page.php template.", "bonestheme"); ?></p>
+									</footer>
+								</article>
 
-								           	while ( $child_query->have_posts() ) : $child_query->the_post();
-								           		
-								           		childPageLoop();
+						<?php endif; ?>
 
-								           	endwhile;
+                        <?php szp_hook_after_page() ?>
 
-								       		wp_reset_postdata();?>
-								 	</div>
-									<?php the_content(); ?>
-								</section> <!-- end article section -->
+					</div> <!-- end #main -->
 
-								<footer class="article-footer">
-									<?php the_tags('<span class="tags">' . __('Tags:', 'bonestheme') . '</span> ', ', ', ''); ?>
+					<?php $args = array(
+						'post_parent' => $post->ID,
+						'post_type' => 'page',
+						'orderby' => 'menu_order'
+					);
+					$child_query = new WP_Query( $args );
+					if ( $child_query->have_posts() ) { ?>
+					<aside class="sidebar fourcol last clearfix" role="complementary">
+						<div id="childPageContainer">
+							<h4><i class="far fa-sitemap"></i> Related Pages</h4>
+							<ul>
+								<?php while ( $child_query->have_posts() ) : $child_query->the_post();?>
+								<li>
+								<a href="<?php the_permalink();?>" alt="<?php the_title();?>">
+								<?php the_title();?></a>
+								</li>
+								<?php endwhile;?>
+								<?php wp_reset_postdata();?>
+							</ul>
+						</div>
+					</aside>
+					<?php };?>
 
-								</footer> <!-- end article footer -->
-
-							</article> <!-- end article -->
-
-							<?php endwhile; else : ?>
-
-									<article id="post-not-found" class="hentry clearfix">
-										<header class="article-header">
-											<h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
-										</header>
-										<section class="entry-content">
-											<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
-										</section>
-										<footer class="article-footer">
-												<p><?php _e("This is the error message in the page.php template.", "bonestheme"); ?></p>
-										</footer>
-									</article>
-
-							<?php endif; ?>
-
-                            <?php szp_hook_after_page() ?>
-
-                            <div id="page-utmof" class="first twelvecol clearfix">
-		                        <a href="<?php echo home_url(); ?>/unlocking-the-magic-of-facilitation-by-sam-killermann-meg-bolger" alt="Unlocking the Magic of Facilitation, a book by Sam Killermann and Meg Bolger">
-		                            <img src="<?php echo home_url(); ?>/wp-content/themes/szp/library/images/banner-unlocking-the-magic-of-facilitation.jpg" alt="Unlocking the Magic of Facilitation, a book by Sam Killermann and Meg Bolger"/>
-		                        </a>
-		                    </div>
-                            
-						</div> <!-- end #main -->
-
-						<?php get_sidebar(); ?>
+					<?php get_sidebar();?>
 
 				</div> <!-- end #inner-content -->
 

@@ -1,0 +1,371 @@
+/*********************
+GENERAL STYLES
+*********************/
+
+.cellHide {
+	display:block;
+}
+
+.tabletHide {
+	display:none;
+}
+
+/*********************
+LAYOUT
+*********************/
+
+.flex {
+	display:flex;
+
+	.half-tablet {
+		flex-basis:50%;
+	}
+}
+
+.flex-end {
+	justify-content: flex-end;
+}
+
+.mobile-col {
+	flex-direction:row;
+}
+
+.sticky-tablet {
+	top: 0; /* required */
+	position: sticky !important;
+}
+
+/*********************
+Download Styles
+*********************/
+
+#downloadModal {
+	p.noemail span.cellHide{
+		display:inline !important;
+	}
+}
+
+.szp-curriculum-covers-wrap {
+	&:hover .szp-curriculum-covers, &:focus .szp-curriculum-covers {
+		.facilitator-guide {
+			z-index:5;
+		}
+		.participant-packet {
+			z-index:4;
+		}
+	}
+}
+
+
+/*********************
+ACTIVITY FINDER
+*********************/
+
+.isotope {
+	.cellHide {
+		display:flex !important;
+	}
+	.tabletHide {
+		display:none !important;
+	}
+}
+
+/*********************
+HEADER SYTLES
+*********************/
+
+.header {
+
+	#inner-header {
+		#logo {
+			a {
+				width:100px;
+				height:100px;
+				border-width:4px;
+			}
+		}
+		#mobile-menu {
+			margin:20px 20px 20px 4vw;
+		}
+	}
+}
+
+#hamburger-nav{
+	top:calc(100px + 30px + 4vw);
+	display:flex;
+	align-items: stretch;
+
+	#hamburger-main-nav {
+		flex-grow:1;
+		margin:3vw;
+		display:flex;
+		align-items: stretch;
+		ul.nav {
+			flex-direction:column;
+			justify-content: space-around;
+
+			li {
+				a {
+					font-size:2em;
+				}
+			}
+		}
+	}
+	.nav.quicklinks-nav {
+		position:relative;
+		padding-left:18px;
+		margin:0 2vw 2vw;
+
+		&:before {
+			content:"QUICKLINKS";
+			display:block;
+			position:absolute;
+			font-family:$theme-font;
+			padding:0 3px;
+			height:100%;
+			left:-18px;
+			top:0;
+			text-align:center;
+			writing-mode:vertical-lr;
+			text-orientation: upright;
+			background:darken($blue-dark, 9%);
+			color:$blue;
+			font-size:12px;
+			border-radius:2px 0px 0px 2px;
+		}
+	}
+}
+
+/*********************
+PAGE SYTLES
+*********************/
+
+/* Padding for Overlap Pages */
+.single-post,
+.single-sfwd-lessons,.single-sfwd-topic,.single-sfwd-quiz,
+.single-activity,
+.single-sfwd-lesson,
+.page-template-default,
+.page-template-page-with-toc,
+.page-template-page-full-width,
+.page-template-page-team,
+.single-hrf_faq {
+	header.header {
+		padding-bottom:80px;
+	}
+
+	#inner-content {
+		margin-top:-90px;
+		position:relative;
+		z-index:2;
+	}
+	.sidebar {margin-top:90px;}
+
+	nav#toc {margin-top:70px;}
+}
+
+#pre-content {
+	position:relative;
+	font-size:calc(13px + .25vw);
+	color:#000;
+	display:flex;
+	text-align:left;
+	justify-content: space-between;
+	height:30px;
+	line-height:30px;
+
+	a {
+		color:#000;
+		text-decoration:none;
+
+		&:hover {
+			text-decoration:underline;
+		}
+	}
+
+	nav {
+		margin-bottom:.5em;
+	}
+
+	p#breadcrumbs {
+		margin:0;
+	}
+
+	#breadcrumbs {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+
+/*********************
+CURRICULUM PAGE
+*********************/
+
+.page-template-page-curriculum{
+
+	.page-header {
+
+		h1, a {
+			font-size:32px;
+		}
+	}
+
+	.intro-section {
+		flex-direction: row;
+		align-items: stretch;
+
+		.big-download-container {
+			font-size:1em;
+		}
+		.pad {
+			display:flex;
+			flex-direction:column;
+		}
+	}
+}
+/*********************
+BLOG SYTLES
+*********************/
+.single-post {
+	.article-header {
+		display:flex;
+		align-items: center;
+		padding:3vw 0 3vw 3vw;
+
+		.article-meta {
+			margin-left:3vw;
+			padding:2vw 3vw 2vw 2vw;
+			background: $blue-light; /* Old browsers */
+		    background: linear-gradient(150deg, $blue-light 0%,#fff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$blue-light', endColorstr='#fff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+		}
+	}
+}
+
+.alignfull {
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	width: auto;
+	max-width:1000%;
+}
+
+.alignwide {
+	margin-left: calc(25% - 25vw);
+	margin-right: calc(25% - 25vw);
+	width: auto;
+	max-width: 1000%;
+}
+
+.alignwide img,
+.alignfull img {
+	display: block;
+	margin: 0 auto;
+	width:100%;
+}
+
+/*********************
+HOME PAGE
+*********************/
+
+.learn-teach {
+	width:50%;
+	.hovercard {
+		flex-direction:column;
+	}
+}
+
+
+#resource-center .cards .card , #resource-center .cards .biglinkcard{
+	width:auto;
+	flex-basis:46%;
+}
+
+#help-wrap {
+	justify-content: space-evenly;
+	#howcanwehelp {
+		order:2;
+	}
+}
+
+
+/*********************
+FOOTER STYLES
+*********************/
+.footer {
+
+	.footer-download {
+		flex-wrap: nowrap;
+
+		.download-count {
+			text-align:left;
+			margin-left:2vw;
+		}
+	}
+}
+
+.kitchen-sink {
+	.nav-group {
+		display:block;
+		width:auto;
+		margin:0 1.5em 1.5em;
+	}
+}
+
+
+/*********************
+SINGLE ACTIVITY STYLES
+*********************/
+
+.single-activity, .single-sfwd-lessons {
+
+	#inner-content {
+
+		#toc {
+			display:block;
+			padding:2vw;
+			padding-top:90px;
+			h3 {
+				margin-top:1em;
+			}
+		}
+	}
+	.stickem-container {
+		position: relative;
+	}
+
+	.stickit {
+		position: fixed;
+		top: 0;
+	}
+
+	.stickit-end {
+		bottom: 0;
+		position: absolute;
+		right: 0;
+	}
+
+
+	.article-header {
+		flex-wrap:nowrap;
+
+		h1 {
+			font-size:32px;
+			line-height:40px;
+		}
+
+	} /* Article Header */
+}
+
+/*********************
+ALL-STAR TRACK
+*********************/
+
+blockquote.floatingHead {
+	margin-right:-6vw;
+	margin-left:3vw;
+	padding:0 100px 0 0;
+	background-size:85px 85px;
+	float:right;
+}

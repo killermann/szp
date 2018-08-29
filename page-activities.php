@@ -5,82 +5,95 @@ Template Name: All Activities Page
 ?>
 
 <?php get_header(); ?>
-			
-			<div id="all-activities">
-			
-				<div id="inner-content" class="wrap clearfix">
-			
-				    <div id="main" class="eightcol first clearfix" role="main">
-                    	<h1>All Activities</h1>
-                        <div class="entry-content">
-                            <ol class="mini-nav clearfix">
-                                <li><a href="http://thesafezoneproject.com/activity-classification-guide/" alt="Activity Classification Guide"><i class="icon-screenshot"></i>Activity Classification Guide</a></li>
-                                <li><a href="http://thesafezoneproject.com/groundrules/" alt="Groundrules"><i class="icon-road"></i>Ground Rules</a></li>
-                                <li><a href="http://thesafezoneproject.com/additional-resources/" alt="Additional Resources"><i class="icon-medkit"></i>Additional Resources</a></li>
-                            </ol>
-                        <p>Following is a list of all the activities we have published on the Safe Zone Project (but we're always adding more). We encourage you to scroll through the list, click on any that spark your interest to read more about them, and use them in your workshops. The various categories each activity falls into are below the title, and the color signifies the type of activity (see the Activity Finder for a reference).</p>
-                        </div>
-                        
-					    <?php query_posts('post_type=activity&showposts=-1&orderby=title&order=asc');
-						
-						if (have_posts()) :
-		 				
-						while (have_posts()) : the_post();
 
-						?>
-					
-					    <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
-						    <div class="cat-bg">
-                            	<div class="share-sign"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><i class="icon-share-sign"></i></a></div>
-							    <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-                            	<div class="clearfix activity-deets cat-text">
-                                    <ul>
-                                        <!--<li class="head"><h3>LABELED:</h3></li>-->
-                                        
-                                        <li class="level"><?php echo get_the_term_list( get_the_ID(), 'activity_level', '' . __('', 'bonestheme') . '</span> ', '' ) ?></li>
-                                        <li class="trust"><?php echo get_the_term_list( get_the_ID(), 'activity_trust', '' . __('', 'bonestheme') . '</span> ', '' ) ?></li>
-                                        <li class="time"><?php echo get_the_term_list( get_the_ID(), 'activity_time', '' . __('', 'bonestheme') . '</span> ', '' ) ?></li>
-                                        <li class="subject"><?php echo get_the_term_list( get_the_ID(), 'activity_subject', '' . __('', 'bonestheme') . '</span> ', '' ) ?></li>
-                                    </ul>
-                                </div>
-						    </div> <!-- end all activities -->
-					    </article> <!-- end article -->
-					
-					    <?php endwhile; ?>	
-					
-					        <?php if (function_exists('bones_page_navi')) { ?>
-					            <?php bones_page_navi(); ?>
-					        <?php } else { ?>
-					            <nav class="wp-prev-next">
-					                <ul class="clearfix">
-					        	        <li class="prev-link"><?php next_posts_link(__('&laquo; Older Entries', "bonestheme")) ?></li>
-					        	        <li class="next-link"><?php previous_posts_link(__('Newer Entries &raquo;', "bonestheme")) ?></li>
-					                </ul>
-					            </nav>
-					        <?php } ?>		
-					
-					    <?php else : ?>
-					    
-					        <article id="post-not-found" class="hentry clearfix">
-					            <header class="article-header">
-					        	    <h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
-					        	</header>
-					            <section class="entry-content">
-					        	    <p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
-					        	</section>
-					        	<footer class="article-footer">
-					        	    <p><?php _e("This is the error message in the index.php template.", "bonestheme"); ?></p>
-					        	</footer>
-					        </article>
-					
-					    <?php endif; ?>
-			
+			<div id="content">
+
+				<div id="inner-content" class="wrap clearfix">
+
+				    <div id="main" class="eightcol first clearfix" role="main">
+						<div class="entry-content">
+							<header class="page-header">
+								<h1 class="page-title" itemprop="headline"><i class="far fa-rocket"></i> <?php the_title(); ?></h1>
+							</header> <!-- end article header -->
+							<p>
+								Below are all the activities currently provided by The Safe Zone Project. Everything here is yours to download, customize, and freely use.
+							</p>
+							<p>
+								<a class="biglink" href="https://thesafezoneproject.com/help/uncopyright" alt="Uncopyright">Uncopyright <i class="far fa-long-arrow-right"></i>
+								</a>
+								<a class="biglink" href="https://thesafezoneproject.com/help/how-to-use-this-site/" alt="How to Use this Site">How to Use this Site <i class="far fa-long-arrow-right"></i>
+								</a>
+							</p>
+						</div>
+						<div class="isotope type-wrap">
+							<article class="card explainer flex flex-centered cellHide">
+								<i class="explainerIcon far fa-3x fa-question-circle"></i>
+								<span>You can narrow down what you're looking for using the <strong><i class="far fa-crosshairs"></i> Activity Finder</strong>. Select a particular type, knowledge, trust, time, or subject (or combine a few options to get really specific). If we have what you're looking for, it'll appear below. If there’s something missing you’d like us to add, or you’d like to submit an activity, please <a href="https://thesafezoneproject.com/contact" alt="Contact the SZP">reach out</a>.</span>
+							</article>
+
+							<article class="card explainer warning flex flex-centered tabletHide">
+								<i class="explainerIcon far fa-3x fa-exclamation-circle"></i>
+								<span><strong>Heads up!</strong> We suggest a bigger screen for browsing activities (<i class="far fa-fw fa-tablet"></i> <i class="far fa-fw fa-laptop"></i> <i class="far fa-fw fa-desktop"></i>). You'll be able to see the <a href="#activityFinder" alt="Jump to Activity Finder">Activity Finder</a> while scrolling, and download directly from this page.</span>
+							</article>
+
+							<?php $all_activities = new WP_Query(
+								array(
+									'post_type' => 'activity',
+									'orderby' => 'title',
+									'order' => 'asc',
+									'posts_per_page' => -1,
+								)
+							);
+
+							while($all_activities->have_posts()) : $all_activities->the_post();
+
+								archiveCards();
+
+							endwhile; wp_reset_postdata(); ?>
+
+						</div><!--/isotope type-wrap-->
+
 				    </div> <!-- end #main -->
-    
-				    <?php get_sidebar(); ?>
-				    
+
+				    <aside role="complementary" class="fourcol sidebar last sticky clearfix">
+						<?php get_activity_finder();?>
+					</aside>
+
 				</div> <!-- end #inner-content -->
-    
+
 			</div> <!-- end #all-activities -->
+
+
+<script src='https://npmcdn.com/isotope-layout@3.0.6/dist/isotope.pkgd.js'></script>
+
+<script>
+$(document).ready(function() {
+
+	// init Isotope
+	var $container = $('.isotope').isotope({
+	  itemSelector: '.card'
+	});
+
+	// filter with selects and checkboxes
+	var $checkboxes = $('#activityFinder input');
+
+	$checkboxes.change( function() {
+	  // map input values to an array
+	  var inclusives = [];
+	  // inclusive filters from checkboxes
+	  $checkboxes.each( function( i, elem ) {
+	    // if checkbox, use value if checked
+	    if ( elem.checked ) {
+	      inclusives.push( elem.value );
+	    }
+	  });
+
+	  // combine inclusive filters
+	  var filterValue = inclusives.length ? inclusives.join('') : '*';
+	  $container.isotope({ filter: filterValue })
+	});
+});
+
+</script>
 
 <?php get_footer(); ?>

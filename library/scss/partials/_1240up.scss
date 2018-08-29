@@ -1,0 +1,39 @@
+/*********************
+HEADER
+*********************/
+
+.header {
+	#inner-header {
+		justify-content: space-evenly;
+	}
+}
+#hamburger-nav {
+	.nav.quicklinks-nav {
+		margin:0 3vw 3vw;
+	}
+	.kitchen-sink .nav-group {
+		margin:0 1.5vw 3vw;
+
+		h3 {margin:0;}
+
+		nav {margin-bottom:2vw;}
+	}
+}
+
+/*********************
+FOOTER
+*********************/
+
+.footer {
+	font-size:1em;
+
+	#inner-footer {
+
+		.footer-navs {
+			.nav-group {
+				margin:0 0 3vw 3vw;
+				font-size:calc(1em + .1vw);
+			}
+		}
+	}
+}

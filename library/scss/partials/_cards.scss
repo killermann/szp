@@ -1,0 +1,217 @@
+.archiveCard {
+	margin-bottom:1.5em;
+	width:100%;
+
+	h3 {margin:0;}
+
+	section {
+		background:#fff;
+		justify-content: space-between;
+		align-items: stretch;
+		padding:0;
+
+		ul.buttons {
+			margin:1.5vw;
+			justify-content: space-between;
+			align-items:center;
+
+			li {
+				margin:5px;
+
+				a {
+					padding:14px;
+					line-height:1;
+					display:block;
+					@include rounded;
+
+					&:hover, &:focus {
+						background:$blue-light;
+					}
+				}
+			}
+		}
+	}
+
+	.excerpt-read-more {
+		display:none;
+	}
+
+	p {
+		margin-top:calc(12px + 1.5vw);
+		margin-left:calc(12px + 1.5vw);
+		margin-bottom:calc(12px + 1.5vw);
+		font-family:$serif;
+		line-height:1.3;
+		font-style:oblique;
+	}
+
+	.article-header {
+		background:$grey;
+		display:flex;
+		align-items: stretch;
+
+		&:before {
+			padding:0 12px;
+			padding:3px;
+			text-align:center;
+			writing-mode:vertical-rl;
+			background:rgba(0,0,0,.2);
+			color:rgba(255,255,255,.7);
+			font-size:12px;
+		}
+
+		h3 {
+			padding:0;
+			flex-grow:1;
+			position:relative;
+
+			a{
+				padding:.5em;
+				color:white;
+				font-size:1.1em;
+				text-shadow:0px 0px 6px rgba(0,0,0,.3);
+				display:block;
+				text-decoration:none;
+			}
+		}
+	}
+}
+
+.archiveCard.type-activity {
+	.article-header:before {content:'Activity';}
+	.cat-bg {background-color:$blue !important;}
+	.cat-bg-light {background-color:lighten($blue,20%) !important;}
+
+	.cat-text, .buttons a {color:$blue !important;}
+	.cat-text-dark {color:darken($blue,20%) !important;}
+}
+
+.archiveCard.type-page {
+	.article-header:before {content:'Page';}
+	.cat-bg {background-color:$green !important;}
+	.cat-bg-light {background-color:lighten($green,20%) !important;}
+
+	.cat-text, .buttons a {color:$green !important;}
+	.cat-text-dark {color:darken($green,20%) !important;}
+}
+
+.archiveCard.type-hrf_faq {
+	.article-header:before {content:'FAQ';}
+	.cat-bg {background-color:$red !important;}
+	.cat-bg-light {background-color:lighten($red,20%) !important;}
+
+	.cat-text, .buttons a {color:$red !important;}
+	.cat-text-dark {color:darken($red,20%) !important;}
+}
+
+.archiveCard.type-post {
+	.article-header:before {content:'Article';}
+	.cat-bg {background-color:$purple !important;}
+	.cat-bg-light {background-color:lighten($purple,20%) !important;}
+
+	.cat-text, .buttons a  {color:$purple !important;}
+	.cat-text-dark {color:darken($purple,20%) !important;}
+}
+
+.archiveCard.sfwd-courses,
+.archiveCard.download,
+.archiveCard.sfwd-lesson {
+	.article-header:before {content:'Course';}
+	.cat-bg {background-color:$orange !important;}
+	.cat-bg-light {background-color:lighten($orange,20%) !important;}
+
+	.cat-text, .buttons a  {color:$orange !important;}
+	.cat-text-dark {color:darken($orange,20%) !important;}
+}
+
+.archiveCard.sfwd-lesson .article-header:before {
+	content:'Lesson';
+}
+
+.shuffleCard {
+	border:4px solid $blue;
+	margin-bottom:8px;
+	color:darken($blue,20%);
+	width:242px;
+	border-radius:2px;
+	text-align:center;
+	position:relative;
+	overflow:hidden;
+
+	i {
+		display:block;
+		margin:0 auto .7em;
+		text-align:center;
+	}
+
+	h3 {
+		font-size:1em;
+		line-height:1.1;
+		margin:0 auto;
+	}
+
+	p {
+		font-size:.7em;
+		line-height:1.1;
+		margin-bottom:1em;
+	}
+
+	a {
+		color:white;
+		display:inline-block;
+		font-size:.8em;
+		padding:.2em .4em;
+		margin:0 auto;
+		@include rounded;
+		text-shadow:0px 2px 4px rgba(black,.3);
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+	}
+
+	header {text-align:center}
+
+
+	&.type-activity {
+		.far:before {content:'\f135';}
+		border-color:$blue;
+		color:darken($blue,20%);
+	}
+
+	&.type-page {
+		.far:before {content:'\f0e8';}
+		border-color:$green;
+		color:darken($green,20%);
+	}
+
+	&.type-hrf_faq {
+		.far:before {content:'\f059';}
+		border-color:$red;
+		color:darken($red,20%);
+	}
+
+	&.type-post {
+		.far:before {content:'\f1ea';}
+		border-color:$purple;
+		color:darken($purple,20%);
+	}
+
+	&.sfwd-courses,
+	&.download,
+	&.sfwd-lesson {
+		.far:before {content:'\f109';}
+		border-color:$orange;
+		color:darken($orange,20%);
+	}
+
+	&.sfwd-lesson .article-header:before {
+		content:'Lesson';
+	}
+
+}
+
+.isotope {
+
+}

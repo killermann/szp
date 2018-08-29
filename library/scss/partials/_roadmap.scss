@@ -1,0 +1,144 @@
+.page-roadmap {
+
+	#main {
+		.entry-content {
+			padding-top:3vw;
+
+			a.biglink {
+				box-shadow:none;
+				margin-right:1em;
+				margin-bottom:2em;
+			}
+		}
+	}
+
+	.sidebar {
+		padding-top:1.5em;
+	}
+
+	#toc ol {font-size:1.3em;}
+
+}
+
+.roadmapCard {
+	padding-top:0;
+	margin-bottom:1.5em;
+	background:white;
+	@include shadow-soft;
+	h2 {
+		padding-top:3vw;
+		margin:0 auto .5em;
+		text-transform:none;
+		color:$text-color;
+	}
+
+	ul, li {max-width:100%;}
+
+	.roadmap-item {
+		display:block;
+		@include shadow-low;
+		&:after {display:none;}
+		margin:1.5vw 0 0;
+
+		&.accordion {
+			h3:after {
+				display:inline;
+				content:"More Details";
+				font-family:$sans-serif;
+				font-weight:400;
+				font-size:16px;
+				line-height:inherit;
+				opacity:.6;
+				margin-left:.5em;
+			}
+
+			&:hover {
+				@include shadow-high;
+			}
+		}
+
+		.roadmap-item--title {
+			justify-content: space-between;
+
+			a {text-decoration: none;}
+
+			h3 {
+				margin:0;
+			}
+			i {display:none;}
+		}
+
+		.roadmap-item--progress {
+			background:#D1D1D1;
+			height:5px;
+			width:100%;
+			margin-top:10px;
+			border-radius:5px;
+
+			&:before {
+				border-radius:5px;
+				height:5px;
+				display:block;
+				content:'';
+				width:0;
+			}
+		}
+
+		.roadmap-item--info {
+			display:none;
+			list-style: disc;
+			margin:0;
+
+			li {
+				margin:.5em 0 0 1.5vw;
+			}
+		}
+
+		&.done {
+			i.done {
+				display:block;
+			}
+			.roadmap-item--progress:before {
+				background:$blue;
+				width:100%;
+			}
+		}
+		&.almost-done {
+			i.almost-done {
+				display:block;
+			}
+			.roadmap-item--progress:before {
+				background:$green;
+				width:87%;
+			}
+		}
+		&.in-progress {
+			i.in-progress {
+				display:block;
+			}
+			.roadmap-item--progress:before {
+				background:$orange;
+				width:66.666%;
+			}
+		}
+		&.planning {
+			i.planning {
+				display:block;
+			}
+			.roadmap-item--progress:before {
+				background:$red;
+				width:33.333%;
+			}
+		}
+		&.not-started {
+			i.not-started {
+				display:block;
+				color:#D1D1D1;
+			}
+			.roadmap-item--progress:before {
+				background:#D1D1D1;
+				width:50%;
+			}
+		}
+	}
+}

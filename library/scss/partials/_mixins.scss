@@ -1,0 +1,419 @@
+
+/*********************
+CLEARFIXIN'
+*********************/
+
+// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+.clearfix {
+  zoom: 1;
+	&:before, &:after { content: ""; display: table; }
+	&:after { clear: both; }
+}
+
+// BORDER-BOX ALL THE THINGS! (https://paulirish.com/2012/box-sizing-border-box-ftw/)
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
+}
+
+// https://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+.image-replacement {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+https://0to255.com/
+*********************/
+
+$alert-yellow:      #fff339;
+$alert-red:         #fbe3e4;
+$alert-green:       #e6efc2;
+$alert-blue:        #d5edf8;
+
+$blue:		        #3FA9F5;
+    $blue-light:    #EDF7FF;
+    $blue-dark:     #0A78C7;
+$green:				#7AC943;
+    $green-light:   #E6FFD5;
+$orange:			#FF931E;
+    $orange-light:  #FFEDD9;
+$yellow:			#ffc128;
+    $yellow-dark:   #C99411;
+$red:				#ff2325;
+    $red-dark:      #A30001;
+$purple:			#7D23A0;
+$pink: 				#d42ebb;
+$grey:				#666;
+
+$text-color:        #333;
+
+$black:             #000;
+$white:             #fff;
+
+$bones-pink:        #f01d4f;
+$bones-blue:        #1990db;
+
+$link-color:        $blue;
+$link-hover:        $blue-dark;
+
+.blue {color:$blue !important}
+.green {color:$green !important;}
+.orange {color:$orange !important;}
+.red {color:$red !important;}
+.purple {color:$purple !important;}
+.yellow {color:$yellow !important;}
+.yellow-dark {color:$yellow-dark !important;}
+.pink {color:$pink !important;}
+.white {color: $white !important;}
+
+.blue-bg {background-color:$blue !important}
+.green-bg {background-color:$green !important;}
+.orange-bg {background-color:$orange !important;}
+.red-bg {background-color:$red !important;}
+.purple-bg {background-color:$purple !important;}
+.yellow-bg {background-color:$yellow !important;}
+.pink-bg {background-color:$pink !important;}
+.white-bg {background-color:white}
+
+.text-shadow {text-shadow:0px 1px 3px rgba(black,.4)}
+
+/*
+Here's a great tutorial on how to
+use color variables properly:
+https://sachagreif.com/sass-color-variables/
+*/
+
+/*********************
+TYPOGRAPHY
+*********************/
+
+$sans-serif:            -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+$serif:                 "Georgia", Cambria, Times New Roman, Times, serif;
+$theme-font:            "Roboto Slab";
+
+
+/* 	To embed your own fonts, use this syntax
+	and place your fonts inside the
+	library/fonts folder. For more information
+	on embedding fonts, go to:
+	https://www.fontsquirrel.com/
+	Be sure to remove the comment brackets.
+*/
+
+/*	@font-face {
+    	font-family: 'Font Name';
+    	src: url('library/fonts/font-name.eot');
+    	src: url('library/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('library/fonts/font-name.woff') format('woff'),
+             url('library/fonts/font-name.ttf') format('truetype'),
+             url('library/fonts/font-name.svg#font-name') format('svg');
+    	font-weight: normal;
+    	font-style: normal;
+	}
+*/
+
+/*
+use the best ampersand
+https://simplebits.com/notebook/2008/08/14/ampersands-2/
+*/
+span.amp {
+  font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
+  font-style: italic;
+}
+
+// text alignment
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+
+// alerts and notices
+%alert {
+	margin: 10px;
+	padding: 5px 18px;
+	border: 1px solid;
+}
+
+.alert-help {
+	@extend %alert;
+	border-color: darken($alert-yellow, 5%);
+	background: $alert-yellow;
+}
+
+.alert-info {
+	@extend %alert;
+	border-color: darken($alert-blue, 5%);
+	background: $alert-blue;
+}
+
+.alert-error {
+	@extend %alert;
+	border-color: darken($alert-red, 5%);
+	background: $alert-red;
+}
+
+.alert-success {
+	@extend %alert;
+	border-color: darken($alert-green, 5%);
+	background: $alert-green;
+}
+
+
+@mixin rounded(){
+	border-radius:500px;
+	-moz-border-radius:500px;
+	-webkit-border-radius:500px;
+}
+
+@mixin rainbow-diagonal(){
+    background-color:$blue;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ff2325+0,ff931e+20,ffc128+40,7ac943+60,3fa9f5+80,7d23a0+100 */
+    background-image: linear-gradient(170deg, #ff2325 0%,#ff931e 20%,#ffc128 40%,#7ac943 60%,#3fa9f5 80%,#7d23a0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background-size:cover;
+}
+
+@mixin rainbow-horizontal() {
+    background-color:$blue;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ff2325+0,ff931e+20,ffc128+40,7ac943+60,3fa9f5+80,7d23a0+100 */
+    background-image: linear-gradient(to right, #ff2325 0%,#ff931e 20%,#ffc128 40%,#7ac943 60%,#3fa9f5 80%,#7d23a0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+@mixin rainbow-vertical() {
+    background-color:$blue;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ff2325+0,ff931e+20,ffc128+40,7ac943+60,3fa9f5+80,7d23a0+100 */
+    background-image: linear-gradient(to bottom, #ff2325 0%,#ff931e 20%,#ffc128 40%,#7ac943 60%,#3fa9f5 80%,#7d23a0 100%);
+}
+
+@mixin gradient-light-blue() {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ff2325+0,ff931e+20,ffc128+40,7ac943+60,3fa9f5+80,7d23a0+100 */
+    background-color: $blue-light; /* Old browsers */
+    background-image: linear-gradient(150deg, $blue-light 0%,#fff 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+@mixin highlighted($color) {
+    background-color:$color;
+    color: #fff !important;
+    text-decoration:none !important;
+    line-height: 1.8;
+    text-shadow:0px 0px 6px rgba(0,0,0,.3);
+    display: inline;
+    letter-spacing:.08em;
+    font-weight:700;
+    text-transform: uppercase;
+    padding: .15em 0.2em;
+    /* Needs prefixing */
+    box-decoration-break: clone;
+}
+
+.highlighted {
+    @include highlighted($blue);
+}
+
+@mixin shadow-low() {
+    box-shadow:0px 3px 5px rgba(0,0,0,.3);
+}
+
+@mixin shadow-high() {
+    box-shadow:0px 5px 8px rgba(0,0,0,.2);
+}
+
+@mixin shadow-soft() {
+    box-shadow:0px 2px 14px rgba(0,0,0,.15);
+}
+
+.shadow-soft {
+    @include shadow-soft;
+}
+
+/*********************
+RAINBOW TEXT
+*********************/
+
+@mixin rainbow-text {
+	text-shadow: 0 1px 0 $red,
+               0 2px 0 $orange,
+               0 3px 0 $green,
+               0 4px 0 $blue,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+
+
+/*********************
+RAINBOW SHADOW
+*********************/
+
+@mixin rainbow-shadow {
+	-webkit-box-shadow: -6px 0px 8px -4px rgba(255,29,37,.5),
+						0px -6px 8px -4px rgba(255,147,30,.5),
+						6px 0px 8px -4px rgba(122,201,67,.5),
+						0px 6px 8px -4px rgba(63,169, 245,.6);
+}
+
+/*********************
+ANIMATIONS
+*********************/
+
+.pulse {
+    box-shadow: 0 0 0 rgba(63,169,245,0);
+    animation: pulse 2s infinite;
+    @include rounded;
+
+    &:hover {
+        animation:none;
+    }
+}
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(63,169,245,.4);
+    }
+    70% {
+        box-shadow: 0 0 0 1em rgba(63,169,245,0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(63,169,245,0);
+    }
+}
+
+@keyframes background-loop {
+    0%{background-position:51% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:51% 0%}
+}
+
+@mixin rainbow-loop($speed) {
+    @include rainbow-vertical;
+    background-size: 1200% 1200%;
+    animation: background-loop $speed ease infinite;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+
+}
+
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdue it.
+*********************/
+
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+/*********************
+BUTTONS
+*********************/
+
+.button, .button:visited {
+	font-family:$theme-font;
+	padding:.8em 1em;
+    margin:.5em;
+    font-size:.8em;
+	color:white;
+    position: relative;
+	display:flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+	letter-spacing:.06em;
+	font-weight: 700;
+	text-transform:uppercase;
+	text-decoration: none;
+	text-shadow:0px 1px 3px rgba(black,.3);
+	cursor: pointer;
+	line-height:1;
+    border:.2em solid white;
+    @include rounded;
+	@include css-gradient($link-color, darken($link-color, 5%));
+    @include shadow-low;
+
+
+	&:hover, &:focus {
+		transform:scale(1.03);
+        color:white;
+        @include shadow-high;
+        z-index:4;
+	}
+
+	&:active {
+		@include css-gradient(darken($link-color, 10%),  darken($link-color, 5%));
+        box-shadow:none;
+        border-color:$blue-dark;
+		color:rgba(black,.3);
+        text-shadow:none;
+        transform:scale(1);
+	}
+
+    & + .button {
+        margin-left:0;
+    }
+
+    &.icon {
+        padding:0 0 0 1em;
+
+        span {
+            margin:.2em .2em .2em 1em;
+        }
+        span, i {
+            margin:.2em;
+        }
+    }
+
+    i {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width:2em;
+        height:2em;
+        background:$blue-dark;
+        text-align:center;
+        line-height:1.5em;
+        @include rounded;
+        margin-left:.5em;
+    }
+}
+
+.button-grey, .button-grey:visited {
+    @include css-gradient(#ccc, #c0c0c0);
+    border-color:#555;
+    color:#555;
+    text-shadow:none;
+    box-shadow:none;
+    background:none;
+
+    &:hover {
+        color:$blue;
+        background:$blue-light;
+        border-color:$blue;
+    }
+    &:active {
+        color:black;
+        border-color:black;
+    }
+}
+
+.button-rainbow, .button-rainbow:visited {
+    @include rainbow-horizontal;
+    &:hover {
+        @include rainbow-loop(3s);
+    }
+}

@@ -1,0 +1,127 @@
+
+//
+// IMPORTING STYLES
+//
+
+// import normalize
+@import "partials/normalize";
+
+// import 3rd Party Library CSS
+
+@import "partials/outdatedbrowser";
+@import "partials/stickem";
+
+
+/*!
+ * Font Awesome Pro 5.1.0 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Commercial License)
+ */
+
+@import 'partials/fontawesome/variables';
+@import 'partials/fontawesome/mixins';
+@import 'partials/fontawesome/core';
+@import 'partials/fontawesome/larger';
+@import 'partials/fontawesome/fixed-width';
+@import 'partials/fontawesome/list';
+@import 'partials/fontawesome/bordered-pulled';
+@import 'partials/fontawesome/animated';
+@import 'partials/fontawesome/rotated-flipped';
+@import 'partials/fontawesome/stacked';
+@import 'partials/fontawesome/icons';
+@import 'partials/fontawesome/screen-reader';
+@import 'partials/fontawesome/fa-regular';
+@import 'partials/fontawesome/fa-brands';
+
+
+// import mixins
+@import "partials/mixins";
+
+// gutenberg block style default overwrites
+
+@import "partials/blocks";
+
+// SZP Styles
+
+@import "partials/base";
+@import "partials/profile";
+@import "partials/cards";
+@import "partials/hrf_faqs";
+@import "partials/learndash";
+@import "partials/roadmap";
+
+
+/*
+LARGER MOBILE DEVICES
+This is for devices like the Galaxy Note or something that's
+larger than an iPhone but smaller than a tablet. Let's call them
+tweeners.
+*/
+@media only screen and (min-width: 481px) {
+
+	// styles in 481up.scss
+	@import "partials/481up";
+
+} // end of media query
+
+@media only screen and (min-width: 768px) {
+
+	// import grids
+	@import "partials/grid";
+
+	// styles in 768up.scss
+	@import "partials/768up";
+
+} // end of media query
+
+@media only screen and (min-width: 1030px) {
+
+	// styles in 1030up.scss
+	@import "partials/1030up";
+
+} // end of media query
+
+/*
+LARGE VIEWING SIZE
+This is for the larger monitors and possibly full screen viewers.
+*/
+@media only screen and (min-width: 1240px) {
+
+	// styles in 1240up.scss
+	@import "partials/1240up";
+
+} // end of media query
+
+/*
+RETINA (2x RESOLUTION DEVICES)
+This applies to the retina iPhone (4s) and iPad (2,3) along with
+other displays with a 2x resolution. You can also create a media
+query for retina AND a certain size if you want. Go Nuts.
+*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+
+	// styles in 2x.scss
+	@import "partials/2x";
+
+} // end of media query
+
+/*
+iPHONE 5 MEDIA QUERY
+Want to get fancy for no good reason? Knock yourself out.
+*/
+@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+
+  // iPhone 5 or iPod Touch 5th generation styles (you can include your own file if you want)
+
+}
+
+/*
+PRINT STYLESHEET
+Feel free to customize this. Remember to add things that won't make
+sense to print at the bottom. Things like nav, ads, and forms should
+be set to display none.
+*/
+@media print {
+	@import "partials/print";
+}

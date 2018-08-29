@@ -1,0 +1,99 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Grid Stylesheet
+
+I've seperated the grid so you can swap it out easily. It's
+called at the top the style.scss stylesheet.
+
+There are a ton of grid solutions out there. You should definitely
+experiment with your own. Here are some recommendations:
+
+https://gridsetapp.com - Love this site. Responsive Grids made easy.
+https://susy.oddbird.net/ - Grids using Compass. Very elegant.
+https://gridpak.com/ - Create your own responsive grid.
+
+The grid below is a combination of the 1140 grid and Twitter Boostrap.
+I liked 1140 but Boostrap's grid was way more detailed so I merged them
+together, let's see how this works out. If you want to use 1140, the original
+values are commented out on each line.
+
+******************************************************************/
+
+.span_12_of_12 {
+	width: 100%;
+}
+
+.span_11_of_12 {
+  	width: 91.33%;
+}
+.span_10_of_12 {
+  	width: 82.66%;
+}
+
+.span_9_of_12 {
+  	width: 74%;
+}
+
+.span_8_of_12 {
+  	width: 65.33%;
+}
+
+.span_7_of_12 {
+  	width: 56.66%;
+}
+
+.span_6_of_12 {
+  	width: 48%;
+}
+
+.span_5_of_12 {
+  	width: 39.33%;
+}
+
+.span_4_of_12 {
+  	width: 30.66%;
+}
+
+.span_3_of_12 {
+  	width: 22%;
+}
+
+.span_2_of_12 {
+  	width: 13.33%;
+}
+
+.span_1_of_12 {
+  	width: 4.666%;
+}
+
+.onecol    { width: 4.665%;  }       /* 4.85%;  } /* grid_1  */
+.twocol    { width: 13.33%; }       /* 13.45%; } /* grid_2  */
+.threecol  { width: 22%; }       /* 22.05%; } /* grid_3  */
+.fourcol   { width: 30.66%; }       /* 30.75%; } /* grid_4  */
+.fivecol   { width: 39.33%; }       /* 39.45%; } /* grid_5  */
+.sixcol    { width: 48%; }       /* 48%;    } /* grid_6  */
+.sevencol  { width: 56.66%; } /* 56.75%; } /* grid_7  */
+.eightcol  { width: 65.33%; }  /* 65.4%;  } /* grid_8  */
+.ninecol   { width: 74%; }        /* 74.05%; } /* grid_9  */
+.tencol    { width: 82.66%; }  /* 82.7%;  } /* grid_10 */
+.elevencol { width: 91.33%; }       /* 91.35%; } /* grid_11 */
+.twelvecol { width: 99.999%; }       /* 100%;   } /* grid_12 */
+
+// layout & column defaults
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+  position: relative;
+  float: left;
+  margin-left: 4%;
+}
+
+.first {
+  margin-left: 0;
+}
+
+.last {
+  float: right;
+}
+
+.center {margin:0 auto 0}

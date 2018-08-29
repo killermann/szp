@@ -1,0 +1,119 @@
+#learndash_profile {
+	padding-top:0;
+}
+.page-profile {
+
+	#main {
+		.entry-content {
+			padding-top:3vw;
+
+			a.biglink {
+				box-shadow:none;
+				margin-right:1em;
+				margin-bottom:2em;
+			}
+		}
+	}
+
+	.sidebar {
+		padding-top:1.5em;
+	}
+
+	#user_profile {
+		background:white;
+		@include shadow-soft;
+
+		#learndash_profile {
+			& > div:nth-of-type(2){
+				@include rainbow-horizontal;
+				padding:.3em .4em;
+				color:white;
+				margin:0;
+				text-shadow: 0 1px 3px rgba(0,0,0,.4);
+			    text-transform: uppercase;
+			    letter-spacing: .07em;
+				border:none;
+
+				&:before {
+					position: relative;
+					content: "\f2bd";
+					font-family: 'Font Awesome 5 Pro';
+					font-weight: 400;
+					display:inline-block;
+					font-size: 1.33333em;
+				    line-height: .75em;
+				    vertical-align: -.0667em;
+				}
+			}
+		}
+	}
+
+	// .sixcol {
+	// 	border-top:.5em solid $blue-dark;
+	// 	margin-bottom:2.762430939%;
+	//
+	// 	&:nth-of-type(2) {border-color:$green;}
+	// 	&:nth-of-type(3) {border-color:$yellow;}
+	// 	&:nth-of-type(4) {border-color:$orange;}
+	// 	&:nth-of-type(5) {border-color:$red;}
+	// 	&:nth-of-type(6) {border-color:$purple;}
+	//
+	// }
+
+	.ld-course-list-content {
+		.ld-course-list-items {
+			@extend .card;
+			@extend .archiveCard;
+			margin-top:1.5em;
+			position:relative;
+
+			.ld-entry-title {
+				background:$blue;
+				display:flex;
+				font-size:1.3em;
+				align-items: stretch;
+				padding:0;
+				margin:0;
+				flex-grow:1;
+				position:relative;
+
+				a{
+					padding:.5em;
+					color:white;
+					font-size:1.1em;
+					text-shadow:0px 0px 6px rgba(0,0,0,.3);
+					display:block;
+					text-decoration:none;
+				}
+			}
+
+			.entry-content {
+				padding:1.5vw !important;
+				display:flex;
+				align-items:center;
+
+				img {
+					margin:0 1.5vw 0 0;
+					border-radius:4px;
+				}
+
+				p {
+					margin:0;
+					font-size:1em;
+
+					.more-link {
+						position:absolute;
+						top:0;
+						left:0;
+						opacity:0;
+						width:100%;
+						height:100%;
+					}
+				}
+			}
+
+		}
+	}
+
+	.expand_collapse {display:none;}
+}

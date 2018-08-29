@@ -1,62 +1,48 @@
-
 <?php get_header(); ?>
 
-			<div id="content" class="clearfix <?php $category = get_the_category(); echo $category[0]->slug;?>">
-
-				<div id="inner-content" class="center-wrap clearfix">
-						 
-
-                        <header class="article-header cat-bg clearfix">
-	                        <span id="headerCatFaq">
-	                        	<a href="http://thesafezoneproject.com/about/faqs/" alt="All FAQs">FAQ:</a>
-							</span>
-
-                            <h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
-                            <div class="header-buttons">
-                            	<ul>
-                                    <li><a class="cat-bg-light cat-text-dark icon-facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink()?>" alt="Share this Activity on Facebook"></a></li>
-                                    <li><a class="cat-bg-light cat-text-dark icon-twitter" target="_blank" href="http://twitter.com/share?text=<?php the_field('twitter_text')?>" alt="Tweet about this Activity"></a></li>
-                              	</ul>
-                            </div>
-                            
-                        </header> <!-- end article header -->
+			<div id="content">
+				<div id="inner-content" class="wrap clearfix">
+					<div id="pre-content">
+						<nav id="breadcrumbs-container" class="cellHide" aria-label="breadcrumb">
+							<?php if ( function_exists('yoast_breadcrumb') ) {yoast_breadcrumb('<p id="breadcrumbs">','</p>');}?>
+						</nav>
+					</div>
+					<div id="main" class="eightcol first clearfix" role="main">
 
 
-						<div id="main" class="eightcol first clearfix" role="main">
-                        	
-                        	<div class="excerpt cat-text">
-                            	<?php echo get_the_excerpt() ?>
-                           	</div>
-                            
-                            <div id="thumbnail-container">
-								<?php the_post_thumbnail('full') ?>
-                            </div>
+						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="https://schema.org/BlogPosting">
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
-								<?php szp_hook_before_post() ?>
 
-								<section class="entry-content clearfix">
+							<header class="page-header">
+								<div class="primary-category">
+									<a alt="All FAQs" href="https://thesafezoneproject.com/help/faq">
+										FAQ
+									</a>
+								</div>
 
-									<?php the_content(); ?>
+								<h1 class="page-title" itemprop="headline">
+									<?php the_title(); ?>
+								</h1>
 
-								</section> <!-- end article section -->
+							</header> <!-- end article header -->
 
-								<footer class="article-footer">
-									<?php the_tags('<p class="tags"><span class="tags-title">' . __('Tags:', 'bonestheme') . '</span> ', ', ', '</p>'); ?>
+							<section class="entry-content clearfix" itemprop="articleBody">
+								<?php edit_post_link(); ?>
+								<?php the_content(); ?>
+							</section> <!-- end article section -->
 
-								</footer> <!-- end article footer -->
+							<footer class="article-footer">
+								<?php the_tags('<span class="tags">' . __('Tags:', 'bonestheme') . '</span> ', ', ', ''); ?>
 
-								<?php comments_template(); ?>
+							</footer> <!-- end article footer -->
 
-							</article> <!-- end article -->
+						</article> <!-- end article -->
 
-						<?php endwhile; ?>
+						<?php endwhile; else : ?>
 
-						<?php else : ?>
-
-							<article id="post-not-found" class="hentry clearfix">
+								<article id="post-not-found" class="hentry clearfix">
 									<header class="article-header">
 										<h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
 									</header>
@@ -64,21 +50,26 @@
 										<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
 									</section>
 									<footer class="article-footer">
-											<p><?php _e("This is the error message in the single.php template.", "bonestheme"); ?></p>
+											<p><?php _e("This is the error message in the page.php template.", "bonestheme"); ?></p>
 									</footer>
-							</article>
+								</article>
 
 						<?php endif; ?>
 
+                        <?php szp_hook_after_page() ?>
+						<section id="recent-faqs" class="clearfix">
+							<header class="flex flex-space-between">
+								<h2><i class="far fa-question-circle"></i> Recent FAQs</h2>
+								<a class="biglink" alt="Read the Blog" href="https://thesafezoneproject.com/help/faq">
+									All FAQs <i class="far fa-long-arrow-right"></i>
+								</a>
+							</header>
+							<?php echo do_shortcode('[hrf_faqs orderby="date" number="5"]')?>
+						</section>
+
 					</div> <!-- end #main -->
 
-					<div id="sidebar_container" class="last fourcol clearfix">
-	                   
-	                    <div id="sidebar1" class="sidebar" role="complementary">
-	                    	<h2>More FAQs</h2>
-	                    	<?php echo do_shortcode('[hrf_faqs orderby="rand" number="7"]')?>
-	                    </div>
-	            	</div>
+					<?php get_sidebar();?>
 
 				</div> <!-- end #inner-content -->
 

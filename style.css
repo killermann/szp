@@ -1,12 +1,13 @@
 /******************************************************************
-Theme Name: SZP
-Description: A delightful theme for delightful people created by delightful people.
-Author: Delightful People
-Version: 1.6
+Theme Name: The Safe Zone Project Theme
+Description: A new theme for the Safe Zone Project, built on Bones
+Author: Sam Killermann
+Version: 2.0
 Tags: flexble-width, translation-ready, microformats, rtl-language-support
+Author URI: https://samuelkillermann.com
 
 License: WTFPL
-License URI: http://sam.zoy.org/wtfpl/
+License URI: https://sam.zoy.org/wtfpl/
 Are You Serious? Yes.
 
 
@@ -29,8 +30,8 @@ COMPLICATED AS YOU THINK.
 It does take a few minutes to wrap your head around, but it will all
 be worth it. Need a quick intro? Here are a few quick reads:
 
-http://cognition.happycog.com/article/preprocess-this
-http://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/
+https://cognition.happycog.com/article/preprocess-this
+https://coding.smashingmagazine.com/2011/09/09/an-introduction-to-less-and-comparison-to-sass/
 
 I would HIGHLY RECOMMEND, if you are going to be working with
 LESS or Sass, that you work locally. Sass isn't readable by a browser
@@ -40,19 +41,19 @@ That being said, here are a few MUST HAVE TOOLS for working with a
 pre-processor: (You really only need one of them)
 
 CodeKit: (Highly Recommended)
-http://incident57.com/codekit/
+https://incident57.com/codekit/
 
 LESS App:
-http://incident57.com/less/
+https://incident57.com/less/
 
 Compass App: (Windows / Mac Users)
-http://compass.handlino.com/
+https://compass.handlino.com/
 
 SimpLESS: (Windows Users)
-http://wearekiss.com/simpless
+https://wearekiss.com/simpless
 
 WinLESS: (Windows Users)
-http://winless.org/
+https://winless.org/
 
 These applications compile LESS or Sass into valid CSS. This
 way you can keep your production files easy to read and your
@@ -67,8 +68,8 @@ you. If LESS/Sass is still a bit confusing for you, then remove them
 and customize this template as you see fit.
 
 If you're frustrated with this new direction and don't like change,
-take a few minutes and think about how much better a developer you 
-can become by just TRYING out new technologies. It may be tough at 
+take a few minutes and think about how much better a developer you
+can become by just TRYING out new technologies. It may be tough at
 first but it WILL make you a better developer. TRUST ME ON THIS. Give
 it a week, maybe two, and you will never go back.
 
