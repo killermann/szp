@@ -294,6 +294,24 @@ COURSE DOWNLOAD PAGE STYLES
     }
 }
 
+.individual-options {
+
+    .individual-options--prices {
+        min-width:20em;
+    }
+
+    .explainer {
+        h4 {
+            margin-top:0;
+        }
+
+        ul, li {
+            margin:.5em 0 0;
+        }
+    }
+}
+
+
 #course-by-the-numbers {
     flex-wrap:wrap;
     align-content:center;

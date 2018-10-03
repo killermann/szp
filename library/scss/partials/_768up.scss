@@ -369,3 +369,18 @@ blockquote.floatingHead {
 	background-size:85px 85px;
 	float:right;
 }
+
+
+/*********************
+COURSE DOWNLOAD PAGE STYLES
+*********************/
+
+.individual-options {
+	display:flex;
+	margin:0 -8vw 0 0;
+
+	.explainer {
+		font-size:.8em;
+		margin-top:-7em;
+	}
+}

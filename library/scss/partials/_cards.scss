@@ -1,3 +1,182 @@
+
+.card {
+	background:#fff;
+	text-decoration:none;
+	transition:box-shadow .15s ease-out;
+
+	.image {
+		width:100%;
+		height:auto;
+		img {
+			background:$purple;
+			display:block;
+			margin:0;
+		}
+	}
+
+	h3 {
+		margin:.5em auto;
+	}
+
+	section, footer {
+		padding:0 1.5vw;
+	}
+
+	footer {
+		padding:0 1.5vw .75vw;
+		font-family:$serif;
+		opacity:.7;
+
+		.go {
+			text-decoration:none;
+			color:#333;
+		}
+	}
+
+	.title {
+		@include highlighted($blue);
+		margin:0 auto;
+	}
+
+	p {
+		margin:.5em 0;
+	}
+
+	&:hover, &:focus {
+		@include shadow-high;
+		transform:scale(1.01);
+	}
+
+	&.activity {
+		padding:0;
+	}
+
+	&.blog {
+		display:flex;
+		max-width:26em;
+		justify-content: space-between;
+		flex-direction:column;
+	}
+
+	&.explainer {
+		background:rgba(150,150,150,.2);
+		padding:1.5vw;
+		margin-bottom:1.5em;
+		font-size:.9em;
+		line-height:1.3;
+
+		i.explainerIcon {
+			margin-right:1.5vw;
+			opacity:.5;
+		}
+
+		&:hover {
+			transform:none;
+			box-shadow:none;
+		}
+
+		.footnote {
+			margin:1em 0 0;
+			line-height:1;
+			font-family:serif;
+		}
+	}
+
+	&.warning {
+		background:$alert-yellow;
+		color:darken($alert-yellow, 40%);
+
+	}
+}
+
+.cards {
+	display:flex;
+	flex-wrap:wrap;
+	padding:1.5vw;
+	justify-content: center;
+	align-items: stretch;
+
+	.card {
+		margin:1.5vw;
+	}
+
+	&.carousel {
+		min-width:100%;
+		flex-wrap:nowrap;
+		justify-content:flex-start;
+		overflow-x: auto;
+		padding:2vw;
+		font-size:.8em;
+
+		.card {
+			min-width:26em;
+			max-width:80vw;
+			margin:1vw;
+		}
+	}
+}
+
+.hovercard {
+	text-align:center;
+	position:relative;
+	max-width:80vw;
+	margin:0 auto;
+	transition:all .2s ease-in-out;
+	overflow:hidden;
+	justify-content: space-between;
+	display:flex;
+	flex-direction: column;
+	text-decoration:none;
+
+	a {
+		padding:3vw;
+		text-decoration:none;
+	}
+
+	.title {
+		color:#fff;
+		text-shadow:0px 1px 2px rgba(black,.3);
+		letter-spacing:.02em;
+		line-height:1.06;
+	}
+
+	.blurb {
+		color:#000;
+		font-weight:500;
+		line-height:1.2;
+	}
+
+	&:after {
+		font-family:"Font Awesome 5 Pro";
+		content:"\f178";
+		color:$blue;
+		position:absolute;
+		bottom:0;
+		right:0;
+		opacity:0;
+		font-size:40px;
+		line-height:1;
+		width:60px;
+		text-align: center;
+	}
+
+	&:hover, &:focus {
+		background:#fff;
+		transform:scale(1.2);
+		z-index:5;
+		box-shadow: 0px 15px 35px -12px rgba(black,.5);
+		.title {color:rgba(0,0,0,.3); text-shadow:none;}
+
+		&:after {opacity:.7;}
+	}
+}
+
+	.blue-bg .hovercard { i.far {color:$blue-dark;}
+		&:hover, &:focus {
+			.title {color:$blue;}
+		}
+	}
+
 .archiveCard {
 	margin-bottom:1.5em;
 	width:100%;
